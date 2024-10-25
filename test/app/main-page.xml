@@ -1,0 +1,27 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo" class="bg-gray-100">
+    <ActionBar title="NFC Ödeme Sistemi" class="bg-blue-600 text-white" />
+    
+    <StackLayout class="p-4">
+        <Label text="{{ cardStatus }}" class="text-lg text-center mb-4" textWrap="true" />
+        
+        <GridLayout rows="auto, auto" columns="*, *" class="mb-4">
+            <Label text="Bakiye:" class="text-lg" row="0" col="0" />
+            <Label text="{{ balance }}" class="text-lg font-bold" row="0" col="1" />
+            <Label text="Kart Durumu:" class="text-lg" row="1" col="0" />
+            <Label text="{{ isCardActive ? 'Aktif' : 'Pasif' }}" 
+                   class="{{ isCardActive ? 'text-green-600' : 'text-red-600' }} text-lg font-bold" 
+                   row="1" col="1" />
+        </GridLayout>
+
+        <Button text="NFC Kart Tara" tap="{{ onScanTap }}" 
+                class="bg-blue-600 text-white font-bold py-2 rounded-lg mb-4" />
+        
+        <Button text="Bakiye Yükle" tap="{{ onTopUpTap }}" 
+                class="bg-green-600 text-white font-bold py-2 rounded-lg mb-4" />
+        
+        <Button text="Ödeme Yap" tap="{{ onPaymentTap }}" 
+                class="bg-purple-600 text-white font-bold py-2 rounded-lg mb-4" />
+        
+        <Label text="{{ lastTransaction }}" class="text-sm text-gray-600 text-center" textWrap="true" />
+    </StackLayout>
+</Page>
